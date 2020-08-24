@@ -23,7 +23,7 @@ jobs:
 
     - uses: actions/setup-node@v1
       with:
-        node-version: 14.x
+        node-version: 12.x
 
     # install dependencies, build, and test
     - name: npm install, build, and test
@@ -35,14 +35,14 @@ jobs:
 
     - uses: azure/appservice-settings@v1
       with:
-        app-name: deleteme-nodehelloworld
-        general-settings-json: '{"linuxFxVersion": "NODE|lts"}' #'General configuration settings as Key Value pairs'
+        app-name: deleteme-reactdemo
+        general-settings-json: '{"linuxFxVersion": "NODE|12-lts"}' #'General configuration settings as Key Value pairs'
 
     # deploy web app
     - uses: azure/webapps-deploy@v1
       with:
-        app-name: deleteme-nodehelloworld
-        package: ./build
+        app-name: deleteme-reactdemo
+        package: .
 
     # Azure logout
     - name: logout
